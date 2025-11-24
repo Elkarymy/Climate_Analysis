@@ -1,0 +1,20 @@
+# requirements.txt for EPW Viewer – Wind & Climate
+# Core web app + charts
+streamlit>=1.32
+pandas>=1.5,<3
+numpy>=1.23
+plotly>=6.1.1
+
+# Static image export (for PDF and PNG) – Plotly 6.x works with Kaleido 1.x
+kaleido>=1.1.0
+
+# PDF report generation
+reportlab>=4.0.0
+pillow>=10.0.0
+
+# Optional: sharper vector charts in PDF (SVG → PDF)
+# Uncomment the next four lines for vector chart support
+# svglib>=1.5.1
+# lxml>=4.9.3
+# cssselect2>=0.7.0
+# tinycss2>=1.2.1
