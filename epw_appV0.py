@@ -195,19 +195,29 @@ def make_wind_rose(counts, title, hide_radial_ticks=True, size_px=700):
 
     # Legend on the RIGHT side; add right margin so nothing is clipped
     fig.update_layout(
-        template="plotly_dark",
-        title=title,
-        autosize=True,
-        polar=dict(
-            radialaxis=dict(showticklabels=not hide_radial_ticks),
-            angularaxis=dict(
-                categoryarray=DIR_LABELS,
-                categoryorder="array",
-                direction="clockwise",
-                rotation=90
-            ),
-            barmode="stack"
+    template=None,                       # remove dark theme
+    paper_bgcolor="white",               # white outside the plot
+    plot_bgcolor="white",                # white inside polar area
+    title=title,
+    autosize=True,
+    polar=dict(
+        bgcolor="white",                 # white polar circle
+        radialaxis=dict(
+            showticklabels=not hide_radial_ticks,
+            gridcolor="#ccc",
+            linecolor="#999"
         ),
+        angularaxis=dict(
+            categoryarray=DIR_LABELS,
+            categoryorder="array",
+            direction="clockwise",
+            rotation=90,
+            gridcolor="#ccc",
+            linecolor="#999"
+        ),
+        barmode="stack"
+    ),
+
         legend_title_text="",
         legend=dict(
             orientation="v",
@@ -1045,3 +1055,4 @@ elif section == "Radiation":
         file_name="radiation_monthly.html",
         mime="text/html"
     )
+
